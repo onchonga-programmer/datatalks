@@ -20,7 +20,7 @@ This project trains a classifier that takes the numeric features extracted from 
 
 ## Dataset
 
-- **Source:** Fetal Health Classification dataset (Kaggle), derived from the UCI Cardiotocography data. <!-- TODO: add exact link and license -->
+- **Source:** Fetal Health Classification dataset (Kaggle), derived from the UCI Cardiotocography data. https://www.kaggle.com/datasets/andrewmvd/fetal-health-classification
 - **Size:** 2,126 records, 21 input features, 1 target (`fetal_health`).
 - **Features:** baseline fetal heart rate, accelerations, fetal movement, uterine contractions, several types of decelerations, short and long term variability measures, and histogram summary statistics.
 - **Labels:** assigned by expert obstetricians.
