@@ -1,0 +1,41 @@
+{
+  "model_name": "xgb",
+  "params": {
+    "subsample": 0.85,
+    "reg_lambda": 0.5,
+    "n_estimators": 300,
+    "min_child_weight": 1,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "colsample_bytree": 0.6
+  },
+  "features": [
+    "baseline value",
+    "accelerations",
+    "fetal_movement",
+    "uterine_contractions",
+    "light_decelerations",
+    "severe_decelerations",
+    "prolongued_decelerations",
+    "abnormal_short_term_variability",
+    "mean_value_of_short_term_variability",
+    "percentage_of_time_with_abnormal_long_term_variability",
+    "mean_value_of_long_term_variability",
+    "histogram_width",
+    "histogram_min",
+    "histogram_max",
+    "histogram_number_of_peaks",
+    "histogram_number_of_zeroes",
+    "histogram_mode",
+    "histogram_mean",
+    "histogram_median",
+    "histogram_variance",
+    "histogram_tendency"
+  ],
+  "labels": {
+    "0": "normal",
+    "1": "suspect",
+    "2": "pathological"
+  },
+  "test_macro_f1": 0.9416
+}
