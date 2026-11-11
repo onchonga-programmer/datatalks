@@ -1,0 +1,25 @@
+[project]
+name = "fetal-health-classifier"
+version = "1.0.0"
+description = "Fetal health classification from cardiotocography (CTG) features"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "xgboost>=2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "httpx>=0.27",
+    "jupyter>=1.0",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "shap>=0.45",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
