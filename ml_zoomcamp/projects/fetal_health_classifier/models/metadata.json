@@ -1,16 +1,16 @@
 {
   "model_name": "xgb",
   "params": {
-    "subsample": 0.85,
-    "reg_lambda": 0.5,
     "n_estimators": 300,
-    "min_child_weight": 1,
     "max_depth": 5,
     "learning_rate": 0.05,
-    "colsample_bytree": 0.6
+    "subsample": 0.85,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 1,
+    "reg_lambda": 1
   },
   "features": [
-    "baseline value",
+    "baseline_value",
     "accelerations",
     "fetal_movement",
     "uterine_contractions",
@@ -37,5 +37,5 @@
     "1": "suspect",
     "2": "pathological"
   },
-  "test_macro_f1": 0.9416
+  "test_macro_f1": 0.9456
 }
