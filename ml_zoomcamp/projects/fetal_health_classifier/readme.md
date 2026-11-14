@@ -38,21 +38,33 @@ This project trains a classifier that takes the numeric features extracted from 
 
 ## Results
 
-<!-- TODO: fill in after experiments -->
+| Model              | Stage   | CV macro F1        | Recall: normal | Recall: suspect | Recall: pathological |
+|--------------------|---------|--------------------|----------------:|----------------:|---------------------:|
+| Logistic regression| baseline| 0.781 (±0.030)     | 0.872           | 0.829           | 0.850                |
+| Logistic regression| tuned   | 0.782 (±0.031)     | 0.859           | 0.876           | 0.829                |
+| Random forest      | baseline| 0.877 (±0.018)     | 0.949           | 0.808           | 0.907                |
+| Random forest      | tuned   | 0.883 (±0.019)     | 0.951           | 0.820           | 0.914                |
+| XGBoost            | baseline| 0.897 (±0.022)     | 0.970           | 0.816           | 0.907                |
+| XGBoost            | tuned   | 0.898 (±0.022)     | 0.969           | 0.816           | 0.914                |
 
-| Model | CV macro F1 | Notes |
-|-------|-------------|-------|
-| Logistic regression | | |
-| Random forest | | |
-| XGBoost | | |
+
+## Findings
+
+- **Tree models clearly outperform logistic regression.** The gap is approximately **0.10 macro F1**, far larger than the fold-to-fold variation (standard deviation of about **0.02–0.03**). This suggests that the relationships between CTG features and fetal status are non-linear.
+
+- **XGBoost was selected, but it performs close to random forest.** The **0.015** difference in macro F1 is within one standard deviation. XGBoost was chosen because it achieved the highest macro F1, the best recall on the normal class (**0.969**), and equal recall on the pathological class (**0.914**).
+
+- **Hyperparameter tuning provided only marginal gains.** XGBoost improved from **0.897** to **0.898**, while random forest improved from **0.877** to **0.883**. This indicates that the default settings were already close to optimal and that performance is likely limited by the available data rather than hyperparameter choices.
+
+- **The suspect class is the hardest to identify.** Recall is approximately **0.82**
 
 Final test-set performance of the selected model:
 
 | Class | Precision | Recall | F1 |
-|-------|-----------|--------|----|
-| Normal | | | |
-| Suspect | | | |
-| Pathological | | | |
+|--------|-----------|--------|----|
+| Normal | 0.967|0.991 | 0.979|
+| Suspect|0.939 | 0.793|0.860 |
+| Pathological | 0.972| 1.000| 0.986|
 
 ## Repository structure
 
@@ -134,7 +146,6 @@ Other endpoints: `GET /health` returns service status.
 
 ## Deployment
 
-<!-- TODO: add the public URL if deployed (Fly.io, Render, etc.) -->
 
 Live service: _not yet deployed_
 
