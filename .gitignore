@@ -6,3 +6,4 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+ml_zoomcamp/deep_learning/data/
